@@ -8,6 +8,7 @@
 	 * 用户登录
 	 **/
 	owner.login = function(loginInfo, callback) {
+		
 		callback = callback || $.noop;
 		loginInfo = loginInfo || {};
 		loginInfo.account = loginInfo.account || '';
