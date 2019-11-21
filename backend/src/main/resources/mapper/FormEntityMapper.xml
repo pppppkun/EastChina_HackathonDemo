@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hackathon.backend.dao.OrderMapper">
+    <resultMap id="FormResultMap" type="com.hackathon.backend.entity.MyFormEntity">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="total_price" jdbcType="DOUBLE" property="total_price"/>
+        <result column="state" jdbcType="VARCHAR" property="state"/>
+        <result column="create_time" jdbcType="VARCHAR" property="create_time"/>
+    </resultMap>
+
+    <select id="Sel_by_url" parameterType="java.lang.String" resultMap="FormResultMap">
+        select * from form where url = #{url}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="MyFormEntity">
+
+        insert into form (url, total_price, state, create_time)
+        values
+        (#{url},#{total_price},#{state},#{create_time});
+
+    </insert>
+
+    <update id="update" parameterType="MyFormEntity">
+        update form set state = #{state} where url = #{url}
+    </update>
+
+
+
+</mapper>

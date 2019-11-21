@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hackathon.backend.dao.ItemMapper">
+    <resultMap id="FormResultMap" type="com.hackathon.backend.entity.MyFormEntity">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="seller" jdbcType="VARCHAR" property="seller"/>
+        <result column="buyer" jdbcType="VARCHAR" property="buyer"/>
+        <result column="price" jdbcType="DOUBLE" property="price"/>
+        <result column="add_time" jdbcType="VARCHAR" property="add_time"/>
+        <result column="longest_time" jdbcType="INTEGER" property="longest_time"/>
+        <result column="category" jdbcType="VARCHAR" property="category"/>
+        <result column="description" jdbcType="CLOB" property="description"/>
+        <result column="delivery" jdbcType="CLOB" property="delivery"/>
+    </resultMap>
+
+</mapper>

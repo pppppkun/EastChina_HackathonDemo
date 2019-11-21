@@ -6,12 +6,14 @@ import com.hackathon.backend.constant.SimpleResponse;
 import com.hackathon.backend.entity.UserEntity;
 import com.hackathon.backend.form.UserForm;
 import com.hackathon.backend.service.UserService;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,11 +26,15 @@ public class UserController {
     @Autowired
     UserService userService;
 
-
-    //TODO 用户注册
+    /**
+     * 用户注册
+     * @param session
+     * @param userForm
+     * @return
+     */
     @ApiOperation(value = "用户注册", response = UserEntity.class, notes="返回SimpleResponse,如果成功注册，返回UserEntity")
     @PostMapping("registerUser")
-    public SimpleResponse registerUser(HttpSession session, @RequestBody UserForm userForm)
+    public SimpleResponse registerUser(@ApiIgnore HttpSession session, @RequestBody UserForm userForm)
     {
         UserEntity userEntity = null;
         System.out.println(userForm.getUsername());

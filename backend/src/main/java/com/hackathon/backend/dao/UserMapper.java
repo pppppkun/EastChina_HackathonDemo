@@ -13,7 +13,6 @@ public interface UserMapper {
     int insert(UserEntity user);
 
 
-    //TODO UPDATE by ID
 
 
 }
