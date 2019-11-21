@@ -5,6 +5,7 @@
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="realname" jdbcType="VARCHAR" property="realname"/>
         <result column="sex" jdbcType="VARCHAR" property="sex"/>
         <result column="department" jdbcType="VARCHAR" property="department"/>
         <result column="balance" jdbcType="DOUBLE" property="balance"/>
@@ -19,9 +20,15 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="UserEntity">
-        insert into user ("username", "password", "sex", "department", "balance", "description", "url")
-        VALUES (#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR}
-        ,#{department,jdbcType=VARCHAR},#{balance,jdbcType=DOUBLE},#{description,jdbcType=VARCHAR},#{url,jdbcType=VARCHAR})
+        insert into user (username, password, realname , sex , department , balance , description , url)
+        VALUES
+        (#{username},#{password},#{realname},#{sex},#{department},#{balance},#{description},#{url})
     </insert>
+
+    <select id="Sel_by_id" parameterType="java.lang.Integer" resultMap="UserResultMap">
+        select * from user where id = #{id}
+    </select>
+
+
 
 </mapper>

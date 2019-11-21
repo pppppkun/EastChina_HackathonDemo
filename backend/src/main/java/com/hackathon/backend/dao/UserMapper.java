@@ -7,7 +7,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 
-    UserEntity Sel_by_username(int id);
-    int insert(UserEntity newuser);
+    UserEntity Sel_by_username(String username);
+    UserEntity Sel_by_PrimaryKey(Integer id);
+
+    int insert(UserEntity user);
+
+
+    //TODO UPDATE by ID
+
 
 }

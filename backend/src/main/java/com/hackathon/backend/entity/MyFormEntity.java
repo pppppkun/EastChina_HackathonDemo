@@ -3,7 +3,7 @@ package com.hackathon.backend.entity;
 import lombok.Data;
 
 @Data
-public class OrderEntity {
+public class MyFormEntity {
 
     private Integer id;
     private String url;

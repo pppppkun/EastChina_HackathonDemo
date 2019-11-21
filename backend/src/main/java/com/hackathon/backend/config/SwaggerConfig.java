@@ -31,9 +31,9 @@ public class SwaggerConfig {
     {
         return new ApiInfoBuilder()
                 .title("闲置物品API")
-                .contact(new Contact("Pkun","pppppkun.github.io","936637810@qq.com"))
+                .contact(new Contact("pkun","","936637810@qq.com"))
                 .version("1.0")
-                .description("Test: Add a method which return a user")
+                .description("API描述")
                 .build();
     }
 
