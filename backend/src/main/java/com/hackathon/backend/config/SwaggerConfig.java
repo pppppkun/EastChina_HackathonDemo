@@ -30,7 +30,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo()
     {
         return new ApiInfoBuilder()
-                .title("闲置物品API")
+                .title("借呗API")
                 .contact(new Contact("pkun","","936637810@qq.com"))
                 .version("1.0")
                 .description("API描述")

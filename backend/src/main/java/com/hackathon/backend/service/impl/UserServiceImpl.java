@@ -16,7 +16,6 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-
     public UserEntity registerUser(UserForm userForm)
     {
         UserEntity userEntity = userMapper.Sel_by_username(userForm.getUsername());

@@ -3,14 +3,16 @@ package com.hackathon.backend.service;
 import com.hackathon.backend.entity.ItemEntity;
 import com.hackathon.backend.form.ItemForm;
 
+import java.util.List;
+
 public interface ItemService {
 
     public ItemEntity registerItem(ItemForm itemForm);
 
     public void modifyItem(ItemForm itemForm);
 
-    public ItemEntity getItemBySeller(String Seller);
+    public List<ItemEntity> getItemBySeller(String seller);
 
-    public ItemEntity getItemByBuyer(String Buyer);
+    public List<ItemEntity> getItemByBuyer(String buyer);
 
 }

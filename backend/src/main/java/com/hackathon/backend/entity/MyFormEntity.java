@@ -9,7 +9,7 @@ public class MyFormEntity {
     private String url;
     private Double total_price;
     private String state;
-    private String creata_time;//2019.11.20
+    private String create_time;//2019.11.20
 
     @Override
     public String toString()
@@ -19,7 +19,7 @@ public class MyFormEntity {
                 ", url='" + url + '\'' +
                 ", total_price=" + total_price +
                 ", state='" + state + '\'' +
-                ", create_time" + creata_time + '\'' +
+                ", create_time" + create_time + '\'' +
                 '}';
     }
 

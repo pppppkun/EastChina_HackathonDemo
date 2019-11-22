@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hackathon.backend.dao.ItemMapper">
-    <resultMap id="FormResultMap" type="com.hackathon.backend.entity.MyFormEntity">
+    <resultMap id="ItemResultMap" type="com.hackathon.backend.entity.ItemEntity">
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
         <result column="seller" jdbcType="VARCHAR" property="seller"/>
@@ -14,5 +14,51 @@
         <result column="description" jdbcType="CLOB" property="description"/>
         <result column="delivery" jdbcType="CLOB" property="delivery"/>
     </resultMap>
+
+    <select id="Sel_by_url" parameterType="java.lang.String" resultMap="ItemResultMap">
+        select * from item where url = #{url}
+    </select>
+
+
+    <select id="Sel_by_seller" parameterType="java.lang.String" resultMap="ItemResultMap">
+        select * from item where seller = #{seller}
+    </select>
+
+    <select id="Sel_by_buyer" parameterType="java.lang.String" resultMap="ItemResultMap">
+        select * from item where buyer = #{buyer}
+    </select>
+
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="ItemEntity">
+        insert into item (url, seller, buyer, price, add_time, longest_time, category, description, delivery)
+        values ( #{url}, #{seller}, #{buyer}, #{price}, #{add_time}, #{longest_time}, #{category}, #{description}, #{delivery} )
+    </insert>
+
+    <update id="update_selective" parameterType="ItemEntity">
+        update item
+        <set>
+            <if test="url != null">
+                url = #{url}
+            </if>
+            <if test="buyer != null">
+                buyer = #{buyer}
+            </if>
+            <if test="price != null">
+                price = #{price}
+            </if>
+            <if test="longest_time != null">
+                longest_time = #{longest_time}
+            </if>
+            <if test="category != null">
+                category = #{category}
+            </if>
+            <if test="description">
+                description = #{description}
+            </if>
+            <if test="delivery != null">
+                delivery = #{delivery}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
 </mapper>

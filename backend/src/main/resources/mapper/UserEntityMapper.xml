@@ -9,8 +9,8 @@
         <result column="sex" jdbcType="VARCHAR" property="sex"/>
         <result column="department" jdbcType="VARCHAR" property="department"/>
         <result column="balance" jdbcType="DOUBLE" property="balance"/>
-        <result column="description" jdbcType="CLOB" property="String"/>
-        <result column="url" jdbcType="VARCHAR" property="String"/>
+        <result column="description" jdbcType="CLOB" property="description"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
     </resultMap>
 
     <select id="Sel_by_username" parameterType="java.lang.String" resultMap="UserResultMap">

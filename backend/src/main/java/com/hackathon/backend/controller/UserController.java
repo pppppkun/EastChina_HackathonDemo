@@ -6,7 +6,6 @@ import com.hackathon.backend.constant.SimpleResponse;
 import com.hackathon.backend.entity.UserEntity;
 import com.hackathon.backend.form.UserForm;
 import com.hackathon.backend.service.UserService;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

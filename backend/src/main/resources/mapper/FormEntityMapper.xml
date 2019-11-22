@@ -10,6 +10,10 @@
         <result column="create_time" jdbcType="VARCHAR" property="create_time"/>
     </resultMap>
 
+    <select id="Sel_by_id" parameterType="java.lang.Integer" resultMap="FormResultMap">
+        select * from form where id = #{id}
+    </select>
+
     <select id="Sel_by_url" parameterType="java.lang.String" resultMap="FormResultMap">
         select * from form where url = #{url}
     </select>

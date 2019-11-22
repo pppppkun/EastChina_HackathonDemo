@@ -2,6 +2,7 @@ package com.hackathon.backend.form;
 
 import lombok.Data;
 
+
 @Data
 public class MyOrderForm {
 
@@ -9,6 +10,6 @@ public class MyOrderForm {
     private String url;
     private Double total_price;
     private String state;
-    private String creata_time;//2019.11.20
+    private String create_time;//2019.11.20
 
 }
