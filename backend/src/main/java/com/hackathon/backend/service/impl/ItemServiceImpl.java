@@ -9,6 +9,7 @@ import com.hackathon.backend.form.ItemForm;
 import com.hackathon.backend.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 
@@ -18,11 +19,10 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     ItemMapper itemMapper;
 
-    public ItemEntity registerItem(ItemForm itemForm)
-    {
+    @Override
+    public ItemEntity registerItem(ItemForm itemForm) {
         ItemEntity itemEntity = itemMapper.Sel_by_url(itemForm.getUrl());
-        if(itemEntity!=null)
-        {
+        if (itemEntity != null) {
             throw new ServerException(ResponseCode.Error, "already have this item");
         }
         itemEntity = new ItemEntity();
@@ -39,28 +39,28 @@ public class ItemServiceImpl implements ItemService {
         return itemEntity;
     }
 
-    public void modifyItem(ItemForm itemForm)
-    {
+    @Override
+    public void modifyItem(ItemForm itemForm) {
         modifyItem(itemForm);
     }
 
-    public List<ItemEntity> getItemBySeller(String seller)
-    {
+    @Override
+    public List<ItemEntity> getItemBySeller(String seller) {
         return itemMapper.Sel_by_seller(seller);
     }
 
-    public List<ItemEntity> getItemByBuyer(String buyer)
-    {
+    @Override
+    public List<ItemEntity> getItemByBuyer(String buyer) {
         return itemMapper.Sel_by_buyer(buyer);
     }
 
-    public List<ItemEntity> getAll()
-    {
+    @Override
+    public List<ItemEntity> getAll() {
         return itemMapper.Sel_all();
     }
 
-    public ItemEntity getItemByUrl(String url)
-    {
+    @Override
+    public ItemEntity getItemByUrl(String url) {
         return itemMapper.Sel_by_url(url);
     }
 
