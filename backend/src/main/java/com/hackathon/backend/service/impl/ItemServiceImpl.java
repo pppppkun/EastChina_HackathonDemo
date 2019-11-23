@@ -27,6 +27,7 @@ public class ItemServiceImpl implements ItemService {
         }
         itemEntity = new ItemEntity();
         itemEntity.setUrl(itemForm.getUrl());
+        itemEntity.setPrice(itemForm.getPrice());
         itemEntity.setSeller(itemForm.getSeller());
         itemEntity.setBuyer(itemForm.getBuyer());
         itemEntity.setAdd_time(itemForm.getAdd_time());

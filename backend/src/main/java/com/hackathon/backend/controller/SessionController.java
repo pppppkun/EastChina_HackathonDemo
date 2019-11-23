@@ -53,7 +53,7 @@ public class SessionController {
             ex.printStackTrace();
             return SimpleResponse.error("Server login error");
         }
-
+        session.setAttribute("user",userEntity);
         return SimpleResponse.ok(userEntity);
 
     }

@@ -52,7 +52,7 @@ public class MyFormController {
             ex.printStackTrace();
             return SimpleResponse.error("register order error");
         }
-
+        session.setAttribute("form",myFormEntity);
         return SimpleResponse.ok(myFormEntity);
 
     }
@@ -91,6 +91,7 @@ public class MyFormController {
             return SimpleResponse.exception(ex);
         }
 
+        session.setAttribute("form list",forms);
         return SimpleResponse.ok(forms);
 
     }

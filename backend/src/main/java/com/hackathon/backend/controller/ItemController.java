@@ -42,7 +42,7 @@ public class ItemController {
             ex.printStackTrace();
             return SimpleResponse.error("register item error");
         }
-
+        session.setAttribute("item",itemForm);
         return SimpleResponse.ok(itemEntity);
     }
 
@@ -62,6 +62,7 @@ public class ItemController {
         {
             return SimpleResponse.error("return list error");
         }
+
         return SimpleResponse.ok(itemEntities);
     }
 
@@ -70,7 +71,7 @@ public class ItemController {
     @ApiOperation(value = "查看物品详情", response = ItemEntity.class,
     notes = "返回SimpleResponse对象，如果查看成功，SimpleResponse对象Data为ItemEntity")
     @GetMapping("/check/{url}")
-    public SimpleResponse check(@ApiIgnore HttpSession session, @RequestBody String url)
+    public SimpleResponse check(@ApiIgnore HttpSession session, @PathVariable("url") String url)
     {
         ItemEntity itemEntity = new ItemEntity();
         try
@@ -81,6 +82,7 @@ public class ItemController {
         {
             return SimpleResponse.error("check item error");
         }
+        session.setAttribute("item",session);
         return SimpleResponse.ok(itemEntity);
     }
 
@@ -89,7 +91,7 @@ public class ItemController {
     @ApiOperation(value = "搜索物品", response = ItemEntity.class,
     notes = "返回SimpleResponse对象，如果登录成功，SimpleResponse对象Data为ItemEntity的List")
     @GetMapping("/find/{description}")
-    public SimpleResponse find(@ApiIgnore HttpSession session, @RequestBody String description)
+    public SimpleResponse find(@ApiIgnore HttpSession session, @PathVariable("description") String description)
     {
         char[] des = description.toCharArray();
         List<ItemEntity> itemEntities = null;
@@ -119,7 +121,7 @@ public class ItemController {
                 itemEntities.remove(itemEntity);
             }
         }
-
+        session.setAttribute("item list", itemEntities);
         return SimpleResponse.ok(itemEntities);
 
     }
@@ -140,9 +142,8 @@ public class ItemController {
         {
             return SimpleResponse.error("modify item error");
         }
+        session.setAttribute("item",itemEntity);
         return SimpleResponse.ok(itemEntity);
     }
-
-
 
 }
