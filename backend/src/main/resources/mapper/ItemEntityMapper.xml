@@ -15,6 +15,10 @@
         <result column="delivery" jdbcType="CLOB" property="delivery"/>
     </resultMap>
 
+    <select id="Sel_all" resultMap="ItemResultMap">
+        SELECT * from item
+    </select>
+
     <select id="Sel_by_url" parameterType="java.lang.String" resultMap="ItemResultMap">
         select * from item where url = #{url}
     </select>

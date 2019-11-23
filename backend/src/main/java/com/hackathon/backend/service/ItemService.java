@@ -9,10 +9,14 @@ public interface ItemService {
 
     public ItemEntity registerItem(ItemForm itemForm);
 
+    public ItemEntity getItemByUrl(String url);
+
     public void modifyItem(ItemForm itemForm);
 
     public List<ItemEntity> getItemBySeller(String seller);
 
     public List<ItemEntity> getItemByBuyer(String buyer);
+
+    public List<ItemEntity> getAll();
 
 }

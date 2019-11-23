@@ -10,6 +10,7 @@ import java.util.List;
 public interface ItemMapper {
 
     ItemEntity Sel_by_url(String url);
+    List<ItemEntity> Sel_all();
     List<ItemEntity> Sel_by_seller(String seller);
     List<ItemEntity> Sel_by_buyer(String buyer);
 

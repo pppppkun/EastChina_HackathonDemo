@@ -53,4 +53,14 @@ public class ItemServiceImpl implements ItemService {
         return itemMapper.Sel_by_buyer(buyer);
     }
 
+    public List<ItemEntity> getAll()
+    {
+        return itemMapper.Sel_all();
+    }
+
+    public ItemEntity getItemByUrl(String url)
+    {
+        return itemMapper.Sel_by_url(url);
+    }
+
 }
