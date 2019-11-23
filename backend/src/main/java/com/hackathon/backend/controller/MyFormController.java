@@ -36,7 +36,7 @@ public class MyFormController {
      */
     @ApiOperation( value = "注册订单", response = MyFormEntity.class,
     notes = "返回SimpleResponse对象，如果登录成功，SimpleResponse对象Data为MyFormEntity")
-    @PostMapping("register")
+    @PostMapping("registerForm")
     public SimpleResponse register(@ApiIgnore HttpSession session, @RequestBody MyOrderForm myOrderForm)
     {
         MyFormEntity myFormEntity = new MyFormEntity();
@@ -60,7 +60,7 @@ public class MyFormController {
 
     //TODO 查看订单
     @ApiOperation(value = "查看订单", response = MyFormEntity.class,
-    notes = "返回SimpleResponse对象，如果查看成功，则SimpleResponse对象Data为MyFormEntiry")
+    notes = "返回SimpleResponse对象，如果查看成功，则SimpleResponse对象Data为MyFormEntity的List")
     @GetMapping("check/{seller}")
     public SimpleResponse checkForm(@ApiIgnore HttpSession session, @PathVariable("seller") String seller)
     {
