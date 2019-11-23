@@ -55,7 +55,7 @@
             <if test="category != null">
                 category = #{category}
             </if>
-            <if test="description">
+            <if test="description != null">
                 description = #{description}
             </if>
             <if test="delivery != null">

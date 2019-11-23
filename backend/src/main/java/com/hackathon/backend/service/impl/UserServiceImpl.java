@@ -63,4 +63,20 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    @Override
+    public void modify(UserForm userForm)
+    {
+        UserEntity userEntity = new UserEntity();
+
+        userEntity.setUsername(userForm.getUsername());
+        userEntity.setPassword(userForm.getPassword());
+        userEntity.setRealname(userForm.getRealname());
+        userEntity.setBalance(userForm.getBalance());
+        userEntity.setDepartment(userForm.getDepartment());
+        userEntity.setDescription(userForm.getDescription());
+        userEntity.setSex(userForm.getSex());
+        userEntity.setUrl(userForm.getUrl());
+        userMapper.modify(userEntity);
+    }
+
 }

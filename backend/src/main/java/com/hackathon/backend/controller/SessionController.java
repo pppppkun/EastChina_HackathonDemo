@@ -8,10 +8,7 @@ import com.hackathon.backend.form.AuthForm;
 import com.hackathon.backend.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpSession;
@@ -32,9 +29,11 @@ public class SessionController {
      */
     @ApiOperation(value = "登录", response = UserEntity.class ,
     notes = "返回SimpleResponse对象，如果登录成功，SimpleResponse对象是User")
-    @PostMapping("login")
-    public SimpleResponse login(@ApiIgnore HttpSession session, @RequestBody AuthForm authForm)
+    @GetMapping("login/{username}&{password}")
+    public SimpleResponse login(@ApiIgnore HttpSession session, @PathVariable("username") String username,
+                                @PathVariable("password") String password)
     {
+        AuthForm authForm = new AuthForm();authForm.setPassword(password);authForm.setUsername(username);
         UserEntity userEntity = new UserEntity();
         try
         {

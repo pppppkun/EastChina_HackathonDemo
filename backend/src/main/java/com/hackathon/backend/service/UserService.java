@@ -14,4 +14,6 @@ public interface UserService {
 
     public UserEntity getUser(String username);
 
+    public void modify(UserForm userForm);
+
 }

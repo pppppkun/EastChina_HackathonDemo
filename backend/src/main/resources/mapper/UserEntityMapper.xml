@@ -29,6 +29,28 @@
         select * from user where id = #{id}
     </select>
 
+    <update id="updata" parameterType="UserEntity">
+        update user
+        <set>
+            <if test="username != null">
+                username = #{username}
+            </if>
+            <if test="sex != null">
+                sex= #{sex}
+            </if>
+            <if test="department != null">
+                department = #{department}
+            </if>
+            <if test="description != null">
+                description = #{description}
+            </if>
+            <if test="url != null">
+                url = #{url}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
 
 
 </mapper>
