@@ -19,7 +19,7 @@ public class ItemController {
 
     @Autowired
     ItemService itemService;
-    
+
     private static int MIN = 3;
 
     //TODO 出租物品
